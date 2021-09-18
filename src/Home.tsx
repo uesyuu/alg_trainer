@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {AppBar, Box, Button, makeStyles, TextField, Toolbar, Typography} from "@material-ui/core";
-import twophase from './lib/twophase'
+import {AppBar, Box, Button, TextField, Toolbar, Typography} from "@material-ui/core";
+import {createStyles, makeStyles} from "@material-ui/core/styles"
+import twoPhase from './lib/twophase'
+import {RouteComponentProps} from "react-router-dom";
+import {RouterState} from "./types/routerState";
 
-const Home = (props) => {
-    const useStyles = makeStyles((theme) => ({
+const Home = (props: RouteComponentProps) => {
+    const useStyles = makeStyles(() => createStyles({
         container: {
             margin: '0 auto',
             padding: '20px',
@@ -18,17 +21,17 @@ const Home = (props) => {
     }))
     const classes = useStyles()
 
-    const [algList, setAlgList] = useState([])
+    const [algList, setAlgList] = useState(Array<string>())
     const [isError, setIsError] = useState(false)
 
     useEffect(() => {
-        twophase.initialize()
+        twoPhase.initialize()
         if (props.location.state) {
-            setAlgList(props.location.state.algList)
+            setAlgList((props.location.state as RouterState).algList)
         }
-    }, [])
+    }, [props.location.state])
 
-    const handleAlgListChanged = (event) => {
+    const handleAlgListChanged = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setAlgList(event.target.value.split("\n"))
     }
 
