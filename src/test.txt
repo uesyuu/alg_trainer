@@ -1,0 +1,5 @@
+R U2 R' U R U2 R' U y L' U' L
+U R U' R' U' y L' U L
+U' L' U L U y' R U' R'
+R U R' U' R U R' U' R U R'
+R U' R' U y L' U L

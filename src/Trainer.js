@@ -1,13 +1,11 @@
 import React, {useEffect, useRef, useState} from "react";
 import {AppBar, Box, Button, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import moment from "moment";
-import twoPhase from './lib/twophase'
+import twophase from './lib/twophase'
 import algUtil from './lib/algUtil'
-import {RouteComponentProps} from "react-router-dom";
-import {RouterState} from "./types/routerState";
 
-const Trainer = (props: RouteComponentProps) => {
-    const useStyles = makeStyles(() => ({
+const Trainer = (props) => {
+    const useStyles = makeStyles((theme) => ({
         container: {
             margin: '0 auto',
             padding: '20px',
@@ -31,26 +29,25 @@ const Trainer = (props: RouteComponentProps) => {
     }))
     const classes = useStyles()
 
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const intervalRef = useRef(null);
     const [time, setTime] = useState(0); // センチ秒
-    const [algList, setAlgList] = useState(Array<string>())
+    const [algList, setAlgList] = useState([])
     const [isTimerRunning, setIsTimerRunning] = useState(false)
-    const [timeList, setTimeList] = useState(Array<string>())
+    const [timeList, setTimeList] = useState([])
     const [scramble, setScramble] = useState("")
 
     useEffect(() => {
-        twoPhase.initialize()
+        twophase.initialize()
         if (props.location.state) {
-            const algListInState = props.location.state as RouterState
-            setAlgList(algListInState.algList)
-            startGame(algListInState.algList)
+            setAlgList(props.location.state.algList)
         } else {
             props.history.push("/")
         }
-    }, [props.history, props.location.state])
+        startGame(props.location.state.algList)
+    }, [])
 
     document.onkeydown = (event) => {
-        if (event.code === "Space") {
+        if (event.keyCode === 32) {
             if (isTimerRunning) { // ソルブ中
                 endGame()
                 setIsTimerRunning(false)
@@ -62,7 +59,7 @@ const Trainer = (props: RouteComponentProps) => {
         }
     }
 
-    const onTouchTimerView = () => {
+    const onTouchTimerView = (event) => {
         if (isTimerRunning) { // ソルブ中
             endGame()
             setIsTimerRunning(false)
@@ -73,9 +70,9 @@ const Trainer = (props: RouteComponentProps) => {
         }
     }
 
-    const startGame = (list: Array<string>) => {
+    const startGame = (list) => {
         const algIndex = Math.floor(Math.random() * list.length)
-        setScramble(twoPhase.solve(algUtil.makeRotationLessAlg(list[algIndex])))
+        setScramble(twophase.solve(algUtil.makeRotationlessAlg(list[algIndex])))
     }
 
     const endGame = () => {
@@ -134,9 +131,7 @@ const Trainer = (props: RouteComponentProps) => {
                 <Box display={"flex"}>
                     <Box className={classes.imageBlock} display={"flex"}>
                         <img
-                            src={"http://cube.rider.biz/visualcube.php?fmt=png&r=x-30y30z15&bg=t&size=150&pzl=3&alg=" + scramble.replace(/\s+/g, "")}
-                            alt={""}
-                        />
+                            src={"http://cube.rider.biz/visualcube.php?fmt=png&r=x-30y30z15&bg=t&size=150&pzl=3&alg=" + scramble.replace(/\s+/g, "")}/>
                     </Box>
                     <Box className={classes.timerBlock}
                          display={"flex"}

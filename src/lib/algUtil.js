@@ -1,13 +1,13 @@
 const algUtil = (function() {
     let faceList = ["U", "R", "F", "D", "L", "B"]
     const rotateX = [2, 1, 3, 5, 4, 0]
-    const rotateXPrime = [5, 1, 0, 2, 4, 3]
+    const rotateXprime = [5, 1, 0, 2, 4, 3]
     const rotateX2 = [3, 1, 5, 0, 4, 2]
     const rotateY = [0, 5, 1, 3, 2, 4]
-    const rotateYPrime = [0, 2, 4, 3, 5, 1]
+    const rotateYprime = [0, 2, 4, 3, 5, 1]
     const rotateY2 = [0, 4, 5, 3, 1, 2]
     const rotateZ = [4, 0, 2, 1, 3, 5]
-    const rotateZPrime = [1, 3, 2, 4, 0, 5]
+    const rotateZprime = [1, 3, 2, 4, 0, 5]
     const rotateZ2 = [3, 4, 2, 0, 1, 5]
 
     const rotate = (faceList, rotateList) => {
@@ -19,7 +19,7 @@ const algUtil = (function() {
     }
 
     const notationToIndex = (notation) => {
-        let index
+        let index = 0
         switch (notation) {
             case "U": {
                 index = 0
@@ -53,7 +53,7 @@ const algUtil = (function() {
         return index
     }
 
-    const makeRotationLessAlg = (alg) => {
+    const makeRotationlessAlg = (alg) => {
         let currentFaceList = [0, 1, 2, 3, 4, 5]
         const scrambleList = alg.split(" ")
         const resultScrambleList = []
@@ -61,19 +61,19 @@ const algUtil = (function() {
             if (scrambleList[i] === "x") {
                 currentFaceList = rotate(currentFaceList, rotateX)
             } else if (scrambleList[i] === "x'") {
-                currentFaceList = rotate(currentFaceList, rotateXPrime)
+                currentFaceList = rotate(currentFaceList, rotateXprime)
             } else if (scrambleList[i] === "x2") {
                 currentFaceList = rotate(currentFaceList, rotateX2)
             } else if (scrambleList[i] === "y") {
                 currentFaceList = rotate(currentFaceList, rotateY)
             } else if (scrambleList[i] === "y'") {
-                currentFaceList = rotate(currentFaceList, rotateYPrime)
+                currentFaceList = rotate(currentFaceList, rotateYprime)
             } else if (scrambleList[i] === "y2") {
                 currentFaceList = rotate(currentFaceList, rotateY2)
             } else if (scrambleList[i] === "z") {
                 currentFaceList = rotate(currentFaceList, rotateZ)
             } else if (scrambleList[i] === "z'") {
-                currentFaceList = rotate(currentFaceList, rotateZPrime)
+                currentFaceList = rotate(currentFaceList, rotateZprime)
             } else if (scrambleList[i] === "z2") {
                 currentFaceList = rotate(currentFaceList, rotateZ2)
             } else {
@@ -91,7 +91,7 @@ const algUtil = (function() {
     }
 
     return {
-        makeRotationLessAlg: makeRotationLessAlg
+        makeRotationlessAlg: makeRotationlessAlg
     }
 })();
 
