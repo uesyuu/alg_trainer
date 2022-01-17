@@ -134,7 +134,7 @@ const Trainer = (props: RouteComponentProps) => {
                 <Box display={"flex"}>
                     <Box className={classes.imageBlock} display={"flex"}>
                         <img
-                            src={"http://cube.rider.biz/visualcube.php?fmt=png&r=x-30y30z15&bg=t&size=150&pzl=3&alg=" + scramble.replace(/\s+/g, "")}
+                            src={"https://cubing.net/api/visualcube/?fmt=svg&r=x-30y30z15&bg=t&size=150&pzl=3&alg=" + scramble.replace(/\s+/g, "")}
                             alt={""}
                         />
                     </Box>
