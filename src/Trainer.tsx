@@ -51,18 +51,15 @@ const Trainer = (props: RouteComponentProps) => {
 
     document.onkeydown = (event) => {
         if (event.code === "Space") {
-            if (isTimerRunning) { // ソルブ中
-                endGame()
-                setIsTimerRunning(false)
-            } else { // 停止中
-                setTime(0)
-                startTimer()
-                setIsTimerRunning(true)
-            }
+            operateGame()
         }
     }
 
     const onTouchTimerView = () => {
+        operateGame()
+    }
+
+    const operateGame = () => {
         if (isTimerRunning) { // ソルブ中
             endGame()
             setIsTimerRunning(false)
@@ -80,13 +77,17 @@ const Trainer = (props: RouteComponentProps) => {
 
     const endGame = () => {
         stopTimer()
-        const timeListTmp = timeList.slice()
         if (time / 100 / 60 < 1) {
-            timeListTmp.push(moment(time * 10).format('s.SS'))
+            setTimeList([
+                ...timeList,
+                moment(time * 10).format('s.SS')
+            ])
         } else {
-            timeListTmp.push(moment(time * 10).format('m:ss.SS'))
+            setTimeList([
+                ...timeList,
+                moment(time * 10).format('m:ss.SS')
+            ])
         }
-        setTimeList(timeListTmp)
         startGame(algList)
     }
 
