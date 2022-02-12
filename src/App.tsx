@@ -1,16 +1,16 @@
 import React from "react";
-import {HashRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./Home";
 import Trainer from "./Trainer";
 
 function App() {
     return (
-        <Router>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div>
                 <Route exact path='/' component={Home}/>
                 <Route path='/trainer' component={Trainer}/>
             </div>
-        </Router>
+        </BrowserRouter>
     );
 }
 
