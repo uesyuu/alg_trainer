@@ -63,7 +63,10 @@ const Home = (props: RouteComponentProps) => {
                     複数の手順を練習できるツールです。<br/><br/>
                     練習したい手順を入力してください。<br/>
                     1行1手順となり、改行すると別手順とみなされます。<br/>
-                    プライム記号は必ずシングルクォーテーションを使い、記号間には必ず半角スペースを置いてください。
+                    使える記号は以下の通りです。<br />
+                    U, R, F, D, L, B, Uw, Rw, Fw, Dw, Lw, Bw, u, r, f, d, l, b, M, S, E, x, y, z<br />
+                    記号はすべて半角で入力してください。<br />
+                    またプライム記号は必ずシングルクォーテーションを使い、記号間には必ず半角スペースを置いてください。
                 </Typography>
                 <Box className={classes.box} display={"flex"} justifyContent={"center"}>
                     <Button variant="contained" size="large" onClick={onClickTrainerButton}>

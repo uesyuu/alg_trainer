@@ -72,7 +72,8 @@ const Trainer = (props: RouteComponentProps) => {
 
     const startGame = (list: Array<string>) => {
         const algIndex = Math.floor(Math.random() * list.length)
-        setScramble(twoPhase.solve(algUtil.makeRotationLessAlg(list[algIndex])))
+        const [newRotationLessSolutionList, newRotationList] = algUtil.makeRotationLessAlg(list[algIndex].split(" "))
+        setScramble(twoPhase.solve(newRotationLessSolutionList.join(" ")))
     }
 
     const endGame = () => {
