@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/alg_trainer/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/alg_trainer/static/js/main.6a717d60.chunk.js",
-    "main.js.map": "/alg_trainer/static/js/main.6a717d60.chunk.js.map",
+    "main.js": "/alg_trainer/static/js/main.3c4329ad.chunk.js",
+    "main.js.map": "/alg_trainer/static/js/main.3c4329ad.chunk.js.map",
     "runtime-main.js": "/alg_trainer/static/js/runtime-main.9488f0c6.js",
     "runtime-main.js.map": "/alg_trainer/static/js/runtime-main.9488f0c6.js.map",
     "static/js/2.733ad4f7.chunk.js": "/alg_trainer/static/js/2.733ad4f7.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.9488f0c6.js",
     "static/js/2.733ad4f7.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.6a717d60.chunk.js"
+    "static/js/main.3c4329ad.chunk.js"
   ]
 }

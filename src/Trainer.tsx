@@ -25,8 +25,13 @@ const Trainer = (props: RouteComponentProps) => {
         timerBlock: {
             backgroundColor: '#ededed'
         },
-        timeListBlock: {
+        timeListTitleBlock: {
             backgroundColor: '#dddddd'
+        },
+        timeListBlock: {
+            backgroundColor: '#dddddd',
+            height: "250px",
+            overflow: "scroll",
         }
     }))
     const classes = useStyles()
@@ -151,7 +156,7 @@ const Trainer = (props: RouteComponentProps) => {
                         </Typography>
                     </Box>
                 </Box>
-                <Box className={classes.timeListBlock} display={"flex"}>
+                <Box className={classes.timeListTitleBlock} display={"flex"}>
                     <Typography>
                         Time List:
                     </Typography>
