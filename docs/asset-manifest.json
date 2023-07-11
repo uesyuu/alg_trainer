@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/alg_trainer/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/alg_trainer/static/js/main.3c4329ad.chunk.js",
-    "main.js.map": "/alg_trainer/static/js/main.3c4329ad.chunk.js.map",
+    "main.js": "/alg_trainer/static/js/main.97ecba74.chunk.js",
+    "main.js.map": "/alg_trainer/static/js/main.97ecba74.chunk.js.map",
     "runtime-main.js": "/alg_trainer/static/js/runtime-main.9488f0c6.js",
     "runtime-main.js.map": "/alg_trainer/static/js/runtime-main.9488f0c6.js.map",
-    "static/js/2.733ad4f7.chunk.js": "/alg_trainer/static/js/2.733ad4f7.chunk.js",
-    "static/js/2.733ad4f7.chunk.js.map": "/alg_trainer/static/js/2.733ad4f7.chunk.js.map",
+    "static/js/2.77dc2bcf.chunk.js": "/alg_trainer/static/js/2.77dc2bcf.chunk.js",
+    "static/js/2.77dc2bcf.chunk.js.map": "/alg_trainer/static/js/2.77dc2bcf.chunk.js.map",
     "index.html": "/alg_trainer/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/alg_trainer/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.733ad4f7.chunk.js.LICENSE.txt": "/alg_trainer/static/js/2.733ad4f7.chunk.js.LICENSE.txt"
+    "static/js/2.77dc2bcf.chunk.js.LICENSE.txt": "/alg_trainer/static/js/2.77dc2bcf.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9488f0c6.js",
-    "static/js/2.733ad4f7.chunk.js",
+    "static/js/2.77dc2bcf.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.3c4329ad.chunk.js"
+    "static/js/main.97ecba74.chunk.js"
   ]
 }
