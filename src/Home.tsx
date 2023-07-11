@@ -17,6 +17,9 @@ const Home = (props: RouteComponentProps) => {
         },
         error: {
             color: "red"
+        },
+        button: {
+            marginLeft: '20px'
         }
     }))
     const classes = useStyles()
@@ -51,6 +54,22 @@ const Home = (props: RouteComponentProps) => {
         })
     }
 
+    const onClickRecapTrainerButton = () => {
+        if (algList.length === 0) {
+            setIsError(true)
+            setTimeout(() => {
+                setIsError(false)
+            }, 3000)
+            return
+        }
+        props.history.push({
+            pathname: "recap_trainer",
+            state: {
+                algList: algList
+            }
+        })
+    }
+
     return (
         <div>
             <AppBar position={"relative"}>
@@ -70,7 +89,10 @@ const Home = (props: RouteComponentProps) => {
                 </Typography>
                 <Box className={classes.box} display={"flex"} justifyContent={"center"}>
                     <Button variant="contained" size="large" onClick={onClickTrainerButton}>
-                        練習する
+                        ランダムで練習する
+                    </Button>
+                    <Button className={classes.button} variant="contained" size="large" onClick={onClickRecapTrainerButton}>
+                        一巡する
                     </Button>
                 </Box>
                 {isError &&
