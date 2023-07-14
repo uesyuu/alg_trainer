@@ -43,6 +43,7 @@ const RecapTrainer = (props: RouteComponentProps) => {
     const [timeList, setTimeList] = useState(Array<string>())
     const [scramble, setScramble] = useState("")
     const [algCount, setAlgCount] = useState(0)
+    const [finishText, setFinishText] = useState("")
 
     useEffect(() => {
         twoPhase.initialize()
@@ -86,14 +87,14 @@ const RecapTrainer = (props: RouteComponentProps) => {
     }
 
     const startGame = (list: Array<string>) => {
-        console.log("algCount", algCount)
-        console.log("algList", list)
-        if (algCount < list.length - 1) {
+        if (algCount < list.length) {
             const alg = list[algCount]
             const [newRotationLessSolutionList, newRotationList] = algUtil.makeRotationLessAlg(alg.split(" "))
             setScramble(twoPhase.solve(newRotationLessSolutionList.join(" ")))
+            setAlgCount((i) => i + 1)
         } else {
             setScramble("")
+            setFinishText("Finish!")
         }
     }
 
@@ -109,9 +110,6 @@ const RecapTrainer = (props: RouteComponentProps) => {
                 ...timeList,
                 moment(time * 10).format('m:ss.SS')
             ])
-        }
-        if (algCount < algList.length) {
-            setAlgCount((i) => i + 1)
         }
         startGame(algList)
     }
@@ -154,7 +152,7 @@ const RecapTrainer = (props: RouteComponentProps) => {
                 </Typography>
                 <Box className={classes.scrambleBlock} display={"flex"} justifyContent={"center"}>
                     <Typography>
-                        Count: {algCount+1}/{algList.length}  {algCount >= algList.length && <span>Finish!</span>}
+                        Count: {algCount}/{algList.length}  {finishText}
                     </Typography>
                 </Box>
                 <Box className={classes.scrambleBlock} display={"flex"} justifyContent={"center"}>
